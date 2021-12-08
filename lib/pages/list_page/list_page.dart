@@ -37,13 +37,13 @@ class _ListPageState extends State<ListPage> {
 
             builder: (context, state) {
 
-              if(state is StudentListInitial){
-                return InitializeGetList();
-              }else if (state is StudentListLoading) {
+
+             if (state is StudentListLoading) {
                 return buildLoading(context);
               } else if (state is StudentListLoaded) {
                 return buildListwithData(state.studentList);
               } else {
+               // means StudentListInitial
                 return InitializeGetList();
               }
 
@@ -112,10 +112,10 @@ class InitializeGetList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: submitCityName(context),
+        child: getStudentList(context),
     );
   }
-  submitCityName(BuildContext context) {
+  getStudentList(BuildContext context) {
     // get weather for the city
     //   final weatheCubit = context.bloc<WeatherCubit>();
     final studentListCubit = BlocProvider.of<StudentListCubit>(context);

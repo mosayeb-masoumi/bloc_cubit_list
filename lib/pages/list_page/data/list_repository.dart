@@ -15,7 +15,7 @@ class GetStudentListRepository extends ListRepository {
     _studentList.add(Student("milad", "nabavi", 25));
 
     return Future.delayed(
-      const Duration(seconds: 5),
+      const Duration(seconds: 3),
       () {
         return _studentList == null ? [] : _studentList;
         // return _studentList;
